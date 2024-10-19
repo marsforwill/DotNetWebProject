@@ -49,8 +49,9 @@ resource config in [appsetting file](https://github.com/marsforwill/DotNetWebPro
    <img width="752" alt="image" src="https://github.com/user-attachments/assets/0843405f-79bc-489e-aa95-7be55c6abb75">
    
 ## Testing
-I will try best to maintain this running server with [public url](https://solid-space-train-jj46jpg5jx4fjj69-5127.app.github.dev/api/text/query?text=Can%20you%20provide%20the%20status%20of%20invoice%20INV-1020?) if you can reference:
-Several basic cases were tested for time reasons：
+
+Several basic cases were tested in limited time：
+
 Invoice Status Enquiry
 ![image](https://github.com/user-attachments/assets/bfcb9f82-bb63-468c-b0a8-0db648d0e96a)
 New Invoice Submission
