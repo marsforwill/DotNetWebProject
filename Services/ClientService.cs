@@ -13,9 +13,12 @@ namespace DotNetWebProject.Services
             _clients = LoadClientsFromJson();
         }
 
-        public Client? GetClientByID(string clientId)
+        public Client? GetClientByID(string? clientId, string? clientName, string? clientEmail)
         {
-            var client = _clients.FirstOrDefault(cli => cli.ClientId == clientId);
+            var client = _clients.FirstOrDefault(
+                cli => (string.IsNullOrEmpty(clientId) || cli.ClientId == clientId) &&
+                        (string.IsNullOrEmpty(clientName) || cli.Name == clientName) &&
+                        (string.IsNullOrEmpty(clientEmail) || cli.Email == clientEmail));
             return client;
         }
 

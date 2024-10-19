@@ -13,10 +13,19 @@ namespace DotNetWebProject.Services
             _invoices = LoadInvoicesFromJson();
         }
 
-        public string GetInvoiceStatus(string invoiceNumber)
+        public List<Invoice> GetInvoices(string? invoiceID, string? clientID, string? status)
         {
-            var invoice = _invoices.FirstOrDefault(inv => inv.InvoiceNumber == invoiceNumber);
-            return invoice?.Status;
+            var invoices = _invoices.FindAll(
+                inv =>  (string.IsNullOrEmpty(invoiceID) || inv.InvoiceNumber == invoiceID) &&
+                        (string.IsNullOrEmpty(clientID) || inv.ClientId == clientID) &&
+                        (string.IsNullOrEmpty(status) || inv.Status == status));
+            return invoices;
+        }
+
+        public Invoice AddNewInvoice(string invoiceID, string clientID, string status){
+            var invoice = new Invoice(invoiceID, clientID, null, status, null);
+            _invoices.Add(invoice);
+            return invoice;
         }
 
         public List<Invoice> LoadInvoicesFromJson()

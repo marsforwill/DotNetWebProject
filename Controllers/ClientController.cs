@@ -15,10 +15,10 @@ namespace DotNetWebProject.Controllers
             _clientService = clientService;
         }
 
-        [HttpGet("{clientId}")]
-        public ActionResult GetClientById(string clientId)
+        [HttpGet("query")]
+        public ActionResult GetClientById(string? clientId, string? clientName, string? clientEmail)
         {
-            var client = _clientService.GetClientByID(clientId);
+            var client = _clientService.GetClientByID(clientId, clientName, clientEmail);
             if (client == null)
             {
                 return NotFound();
